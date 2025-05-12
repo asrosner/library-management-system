@@ -14,25 +14,6 @@ const tableHead = {
 //borrrowed field
 const borrowedField = "borrowed";
 
-//Get all books
-function GetData() {
-  const [state, setState] = useState();	//data from get
-  
-  //get data from api
-  useEffect(() => {
-	const dataFetch = async () => {
-	  const data = await (await fetch('http://localhost:3000/api/books')).json();
-	  setState(data);
-	};
-
-	//do request
-	dataFetch();
-  }, []);
-
-  //return the data
-  return { data: state };
-} 
-
 //show all books
 const Books = () => {
   const countPerPage = 10;	//books per page
@@ -41,9 +22,14 @@ const Books = () => {
   const [currentPageData, setCurrentPageData] = useState([]);	//books on current page
   const [inputBoxValue, setInputBoxValue] = useState("");	//text in seach box
   const [currentDataLength, setCurrentDataLength] = useState(0);	//total number of books considering search filter
-  
-  const { data } = GetData();	//retrieve books
+  const [data, setData] = useState();
   const navigate = useNavigate();	//for future page navigation
+  
+  //get data from api
+  const dataFetch = async () => {
+    const d = await (await fetch('http://localhost:3000/api/books')).json();
+    setData(d);
+  };
 
   //table header
   const headRow = () => {
@@ -125,6 +111,10 @@ const Books = () => {
 		  searchData();
 		}
 	}
+	else {
+		dataFetch();
+	}
+		
   }, [value, data]);
 
   // show loading state while waiting for the data
