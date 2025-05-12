@@ -68,7 +68,7 @@ Run the attached lms.sql script to create the local MySQL database named lms.
 
 ### source`
 
-The node/express backend and React projects are subfolders of the library-management-system folder. Download the source from GitHub.
+The node/express backend and React projects are subfolders of the library-management-system folder. Download the source from GitHub. Execute "npm install" in both frontend and backend to resolve dependencies.
 
 ## Running the application
 
@@ -105,4 +105,5 @@ Traverse to the root folder of the frontend repository. Then, execute "npm test"
 	- check the status of the book with the get results.
 	- delete the book
 - Improve on error handling in both backend and frontend applications.
+- Further modularize Edit and Books by creating an api module and moving the api access functionality to this module.
 
