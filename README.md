@@ -68,7 +68,7 @@ Run the attached lms.sql script to create the local MySQL database named lms.
 
 ### source`
 
-The node/express backend and React projects are subfolders of the library-management-system folder. Download the source from GitHub. Execute "npm install" in both frontend and backend to resolve dependencies.
+The node/express backend and React projects are subfolders of the library-management-system folder. Download the source from GitHub. Execute "npm install" in both frontend and backend to resolve dependencies. Modify the db.js file in the backend folder to include the correct database access information.
 
 ## Running the application
 
